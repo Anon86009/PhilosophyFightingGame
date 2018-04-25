@@ -10,9 +10,11 @@ config_version=3
 
 [application]
 
-config/name="PhilosophyFightingGame"
+config/name="philfightproto"
+run/main_scene="res://Scenes/Fight.tscn"
 config/icon="res://icon.png"
 
-[rendering]
+[input]
 
-environment/default_environment="res://default_env.tres"
+action_1=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]

@@ -1,0 +1,261 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/school_of_athens.png" type="Texture" id=1]
+[ext_resource path="res://Assets/focault_portrait.jpg" type="Texture" id=2]
+[ext_resource path="res://Scripts/Fighter.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Char_1.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+
+font_path = "res://Assets/roboto-bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 24
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "duck"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FighterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.01
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FighterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FighterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 18 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FighterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 19 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "punch"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FighterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 37, 38 ]
+}
+
+[sub_resource type="Animation" id=9]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FighterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 29, 35 ]
+}
+
+[node name="Fight" type="Node2D" index="0"]
+
+[node name="BackgroundSprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 503.299, 264.393 )
+scale = Vector2( 1.17045, 1.0484 )
+texture = ExtResource( 1 )
+
+[node name="HUD" type="Node2D" parent="." index="1"]
+
+position = Vector2( 70.3524, 471.802 )
+
+[node name="FighterPanel" type="Panel" parent="HUD" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -59.0
+margin_top = -458.0
+margin_right = 246.0
+margin_bottom = -361.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Material", "Rect", "Theme", "custom_styles" ]
+
+[node name="FighterPortrait" type="Sprite" parent="HUD/FighterPanel" index="0"]
+
+position = Vector2( 33.1804, 31.5808 )
+scale = Vector2( 0.10666, 0.10666 )
+texture = ExtResource( 2 )
+
+[node name="FighterName" type="Label" parent="HUD/FighterPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 65.0
+margin_top = 13.0
+margin_right = 355.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Foucault"
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Hint", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="HpBar" type="ColorRect" parent="HUD/FighterPanel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 65.0
+margin_right = 298.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.15477, 0.808594, 0.164986, 1 )
+
+[node name="Fighter" type="Area2D" parent="." index="2"]
+
+position = Vector2( 70.3524, 471.802 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+
+[node name="FighterCollisionShape" type="CollisionShape2D" parent="Fighter" index="0"]
+
+position = Vector2( -12.0258, 3.31427 )
+scale = Vector2( 2.42177, 4.42598 )
+shape = SubResource( 3 )
+
+[node name="FighterSprite" type="Sprite" parent="Fighter" index="1"]
+
+position = Vector2( -10.551, -11.7086 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+vframes = 16
+hframes = 18
+frame = 38
+region_rect = Rect2( 120.868, 138.338, 0, 1 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="FighterAnimationPlayer" type="AnimationPlayer" parent="Fighter" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/duck = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jump-left = SubResource( 6 )
+anims/jump-right = SubResource( 7 )
+anims/punch = SubResource( 8 )
+anims/walk = SubResource( 9 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[connection signal="animation_finished" from="Fighter/FighterAnimationPlayer" to="Fighter" method="_on_FighterAnimationPlayer_animation_finished"]
+
+
